@@ -32,6 +32,7 @@ public class DrawingPanel extends JPanel
 		
 		mrButton = new JButton();
 		rectangleList = new ArrayList<Rectangle>();
+		shapePanel = new ShapePanel();
 		
 		setupPanel();
 		setupLayout();
@@ -43,6 +44,7 @@ public class DrawingPanel extends JPanel
 		this.setLayout(baseLayout);
 		this.setBackground(Color.PINK);
 		this.add(mrButton);
+		this.add(shapePanel);
 		
 	}
 	
@@ -53,7 +55,21 @@ public class DrawingPanel extends JPanel
 	
 	private void setupListeners()
 	{
+		mrButton.addActionListener(new ActionListener()
+		{
 		
+			public void actionPerformed(ActionEvent click)
+			{
+				int xPosition = (int) (Math.random() * getWidth());
+				int yPosition = (int) (Math.random() * getHeight());
+				int width = (int) (Math.random() * 100);
+				int height = (int) (Math.random() * 100);
+				
+				rectangleList.add(new Rectangle(xPosition, yPosition, width, height));
+				
+				repaint();
+			}
+		});
 	}
 
 	@Override
@@ -66,6 +82,16 @@ public class DrawingPanel extends JPanel
 		mainGraphics.setColor(Color.CYAN);
 		
 		mainGraphics.drawRect(50, 70, 200, 20);
+		
+		for(Rectangle current :rectangleList)
+		{
+			int red = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			
+			mainGraphics.setColor(new Color(red,green,blue));
+			mainGraphics.draw(current);
+		}
 	}
 
 }
