@@ -78,7 +78,7 @@ public class DrawingPanel extends JPanel
 		super.paintComponent(currentGraphics);
 		
 		Graphics2D mainGraphics = (Graphics2D) currentGraphics;
-		mainGraphics.setStroke(new BasicStroke(20));
+		mainGraphics.setStroke(new BasicStroke(15));
 		mainGraphics.setColor(Color.CYAN);
 		
 		mainGraphics.drawRect(50, 70, 200, 20);

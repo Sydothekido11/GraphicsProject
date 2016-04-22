@@ -11,7 +11,7 @@ public class GraphicsController
 		baseFrame = new DrawingFrame(this);
 	}
 	
-	public void art()
+	public void start()
 	{
 		
 	}
