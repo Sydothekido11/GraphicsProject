@@ -20,7 +20,8 @@ public class DrawingPanel extends JPanel
 	private GraphicsController baseController;
 	private SpringLayout baseLayout;
 	private ShapePanel shapePanel;
-	private JButton mrButton;
+	private JButton rectangleButton;
+	private JButton polygonButton;
 	private ArrayList<Rectangle> rectangleList;
 	
 	private DrawingFrame baseFrame;
@@ -30,7 +31,8 @@ public class DrawingPanel extends JPanel
 		baseLayout = new SpringLayout();
 		this.baseController = baseController;
 		
-		mrButton = new JButton();
+		rectangleButton = new JButton();
+		polygonButton = new JButton();
 		rectangleList = new ArrayList<Rectangle>();
 		shapePanel = new ShapePanel();
 		
@@ -43,7 +45,8 @@ public class DrawingPanel extends JPanel
 	{
 		this.setLayout(baseLayout);
 		this.setBackground(Color.PINK);
-		this.add(mrButton);
+		this.add(rectangleButton);
+		this.add(polygonButton);
 		this.add(shapePanel);
 		
 	}
@@ -55,18 +58,21 @@ public class DrawingPanel extends JPanel
 	
 	private void setupListeners()
 	{
-		mrButton.addActionListener(new ActionListener()
+		rectangleButton.addActionListener(new ActionListener()
 		{
 		
 			public void actionPerformed(ActionEvent click)
 			{
-				int xPosition = (int) (Math.random() * getWidth());
-				int yPosition = (int) (Math.random() * getHeight());
-				int width = (int) (Math.random() * 100);
-				int height = (int) (Math.random() * 100);
-				
-				rectangleList.add(new Rectangle(xPosition, yPosition, width, height));
-				
+				shapePanel.addTriangle();
+				repaint();
+			}
+		});
+		
+		polygonButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				shapePanel.addPolygon();
 				repaint();
 			}
 		});
