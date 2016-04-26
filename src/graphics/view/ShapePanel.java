@@ -15,6 +15,9 @@ public class ShapePanel extends JPanel
 {
 
 	private ArrayList<Rectangle> rectangleList;
+	private ArrayList<Ellipse2D> ellipseList;
+	private ArrayList<Polygon> triangleList;
+	private ArrayList<Polygon> polygonList;
 	
 	
 	public void addTriangle()
