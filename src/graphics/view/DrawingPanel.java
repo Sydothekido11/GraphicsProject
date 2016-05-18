@@ -22,6 +22,10 @@ public class DrawingPanel extends JPanel
 	private ShapePanel shapePanel;
 	private JButton rectangleButton;
 	private JButton polygonButton;
+	private JButton triangleButton;
+	private JButton squareButton;
+	private JButton circleButton;
+	private JButton ellipseButton;
 	private ArrayList<Rectangle> rectangleList;
 	
 	private DrawingFrame baseFrame;
@@ -33,6 +37,10 @@ public class DrawingPanel extends JPanel
 		
 		rectangleButton = new JButton();
 		polygonButton = new JButton();
+		triangleButton = new JButton();
+		squareButton = new JButton();
+		circleButton = new JButton();
+		ellipseButton = new JButton();
 		rectangleList = new ArrayList<Rectangle>();
 		shapePanel = new ShapePanel();
 		
@@ -47,6 +55,10 @@ public class DrawingPanel extends JPanel
 		this.setBackground(Color.PINK);
 		this.add(rectangleButton);
 		this.add(polygonButton);
+		this.add(triangleButton);
+		this.add(squareButton);
+		this.add(circleButton);
+		this.add(ellipseButton);
 		this.add(shapePanel);
 		
 	}
@@ -63,7 +75,7 @@ public class DrawingPanel extends JPanel
 		
 			public void actionPerformed(ActionEvent click)
 			{
-				shapePanel.addTriangle();
+				shapePanel.addRectangle();
 				repaint();
 			}
 		});
@@ -73,6 +85,38 @@ public class DrawingPanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				shapePanel.addPolygon();
+				repaint();
+			}
+		});
+		triangleButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				shapePanel.addTriangle();
+				repaint();
+			}
+		});
+		squareButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				shapePanel.addSquare();
+				repaint();
+			}
+		});
+		circleButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				shapePanel.addCircle();
+				repaint();
+			}
+		});
+		ellipseButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				shapePanel.addEllipse();
 				repaint();
 			}
 		});
